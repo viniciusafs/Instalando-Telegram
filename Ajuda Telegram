@@ -1,0 +1,33 @@
+
+sudo rm -Rf /opt/telegram*
+
+sudo rm -Rf /usr/bin/telegram
+
+sudo rm -Rf /usr/share/applications/telegram.desktop
+
+# Remove as pastas, caso elas existam.
+
+sudo mv /opt/Telegram*/ /opt/telegram
+
+# Renomear a pasta, no caso, tirando a letra maiuscula
+
+sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
+
+# Cria um link para o programa
+
+echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/telegram/Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop
+
+# Criando um lançador para o programa. O arquivo é criado no diretório resposável, /usr/share/applications/
+
+sudo chmod +x /usr/share/applications/telegram.desktop
+
+# Dando permissão ao arquivo.
+
+cp /usr/share/applications/telegram.desktop  ~/Área\ de\ Trabalho/
+
+# Copiar o atalho para área de trabalho
+
+cp /usr/share/applications/telegram.desktop ~/Desktop
+
+# Em ingles, use esse comando ao invés do anterior
+
